@@ -1,0 +1,7 @@
+* Eclipse Theia
+#+BEGIN_SRC sh
+$ docker build --no-cache --build-arg GID=$(id -g) --build-arg GID_NAME=$(id -gn) --build-arg UID=$(id -u) --build-arg UID_NAME=$(id -un) --file Dockerfile . --tag image-name:latest
+#+END_SRC
+#+BEGIN_SRC sh
+$ docker run -it --init -p 3000:3000 --volume $(pwd):/home/$(id -un) --name container-name image-id
+#+END_SRC
